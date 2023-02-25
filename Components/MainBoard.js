@@ -36,6 +36,7 @@ const MainBoard = () => {
             tmpDroppedCard.push([{value: 0, suit: "secondary"}])
         }
         setDroppedCard(tmpDroppedCard)
+        console.log("initDropZone")
 
     }
 
@@ -109,6 +110,8 @@ const MainBoard = () => {
     }
 
     const setReloading = () => {
+        console.log("setReloading")
+
         setStop(false)
         setPause(false)
         setStart(true)

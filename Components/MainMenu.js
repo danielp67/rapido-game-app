@@ -65,7 +65,7 @@ const MainMenu = (props) => {
                                 <Button className="btn btn-primary"
                                         onPress={() => setReloading()}
                                         disabled={winner}
-                                title={scoring.partNb === 0 ? "Démarrer" : "Continuer"}
+                                        title={scoring.partNb === 0 ? "Démarrer" : "Continuer"}
                                 />
 
                                 <Button type="button" className="btn btn-secondary"

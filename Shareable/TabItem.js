@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from "react-native";
 
 const TabItem = (props) => {
 
@@ -6,11 +7,16 @@ const TabItem = (props) => {
 
     return (
         <li className="nav-item" role="presentation">
-            <button className={`nav-link text-capitalize ${id === "home"? "active" : ""}`} id={`${id}-tab`} data-bs-toggle="tab"
-                    data-bs-target={`#${id}-tab-pane`} type="button" role="tab" disabled={disabled}
-                    aria-controls={`${id}-tab-pane`} aria-selected={id === "home"}>
-                {id}
-            </button>
+            <Button
+                    onPress={()=>console.log("hello")}
+                    className={`nav-link text-capitalize ${id === "home"? "active" : ""}`}
+                    id={`${id}-tab`} data-bs-toggle="tab"
+                    data-bs-target={`#${id}-tab-pane`} type="button" role="tab"
+                    disabled={disabled}
+                    aria-controls={`${id}-tab-pane`} aria-selected={id === "home"}
+                    title={id}
+            />
+
         </li>
     )
 }
