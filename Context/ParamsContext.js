@@ -2,9 +2,9 @@ import React from 'react';
 
 export const Params = {
     playerSlot: ["reserveSlot", "tmpSlot1", "tmpSlot2", "tmpSlot3", "rapidoSlot"],
-    suits: ["primary", "success", "warning", "danger"],
+    suits: ["#0d6efd", "#198754", "#dc3545", "#ffc107"],
     values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    color: ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"],
+    color: ["#0d6efd", "#198754", "#dc3545", "#ffc107", "#0d6efd", "#198754", "#dc3545", "#ffc107", "#0d6efd", "#198754", "#dc3545", "#ffc107"],
     switchParams: [{name: "switchCountScore", label: "Comptage des points"},
         {name: "switchTimer", label: "Timer"},
         {name: "switchDarkMode", label: "Dark Mode"}],

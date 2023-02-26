@@ -5,6 +5,7 @@ import Timer from "./Timer";
 import Player from "./Player";
 import MainMenu from "./MainMenu";
 import {ScoreContext} from "../Context/ScoreContext";
+import {StyleSheet, View} from "react-native";
 
 const MainBoard = () => {
 
@@ -126,13 +127,16 @@ const MainBoard = () => {
     }
 
 
-    if (loading) {
+    if (!loading) {
 
         return (
-            <>
+            <View  style={styles.mainBoard}>
                 <ScoreContext.Provider value={{score: scoring, partNb: partNb}}>
-                    <div className="row">
-                        <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
+                    <div className="row"
+                         style={styles.mainBoard}
+                    >
+                        <div style={styles.timer}
+                            className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
                             <Timer
                                 start={start}
                                 pause={pause}
@@ -189,7 +193,7 @@ const MainBoard = () => {
                     </div>
                 </ScoreContext.Provider>
 
-            </>
+            </View>
         )
     } else {
 
@@ -205,6 +209,22 @@ const MainBoard = () => {
         )
     }
 }
+
+
+const styles = StyleSheet.create({
+    timer: {
+        flex:1,
+        backgroundColor: '#7b26a0',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    mainBoard: {
+        flex:1,
+        backgroundColor: '#8d8d8d',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
 
 export default MainBoard;

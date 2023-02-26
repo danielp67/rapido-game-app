@@ -9,7 +9,7 @@ export const Settings = {
     switchDarkMode : true,
     dark: {className:"bg-dark text-white"},
     light: {className:""},
-    color: ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"]
+    color: ["#0d6efd", "#198754", "#dc3545", "#ffc107", "#0d6efd", "#198754", "#dc3545", "#ffc107", "#0d6efd", "#198754", "#dc3545", "#ffc107"]
 
 }
 

@@ -1,11 +1,9 @@
 import React from 'react';
+import {StyleSheet} from "react-native";
 
 const Card = (props) => {
-    const {drop, setCurrentCard, setCardOnDbClick, slotName, card, realPlayer} = props
+    const {setCardOnDbClick, slotName, card, realPlayer} = props
 
-    const dragStart = (e) => {
-        setCurrentCard({card:card, slotName:slotName})
-    };
 
     const doubleClick = (e) => {
         setCardOnDbClick({card:card, slotName:slotName})
@@ -25,12 +23,8 @@ const Card = (props) => {
     if(realPlayer) {
         return (
             <div
-                className={`card playerCard bg-${card.suit} ${className}`}
-                onDragStart={(e) => dragStart(e)}
-                onDragEnd={drop}
-                onDoubleClick={(e) => doubleClick(e)}
+                style={styles(card).playerCard}
                 onTouchEndCapture={(e) => doubleClick(e)}
-                draggable
             >
                 <p className="my-auto fs-4 fw-bold">{card.value}</p>
             </div>
@@ -40,7 +34,7 @@ const Card = (props) => {
     else{
         return (
             <div
-                className={`card autoPlayerCard my-auto bg-${card.suit} ${className}`}
+                style={styles(card).autoPlayerCard}
             >
                 <p className="my-auto">{card.value}</p>
             </div>
@@ -49,5 +43,28 @@ const Card = (props) => {
     }
 
 }
+
+
+const styles = (props) => StyleSheet.create({
+
+    autoPlayerCard:{
+            width: '30px',
+            height: '50px',
+        flex:1,
+        backgroundColor: props.suit,
+        border:'0.1rem solid',
+        borderRadius:'0.3rem',
+        },
+
+    playerCard:{
+        width: '50px',
+        height: '80px',
+        flex:1,
+        backgroundColor: props.suit,
+        border:'0.1rem solid',
+        borderRadius:'0.3rem',
+    }
+    });
+
 
 export default Card;

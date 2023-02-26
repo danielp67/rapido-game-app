@@ -7,7 +7,6 @@ const DropZone = (props) => {
 
     return (
         <div className="row bg-secondary bg-opacity-25 text-center">
-
                 {
                     droppedCard.map((mapping, index) => {
                       return(
