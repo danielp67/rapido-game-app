@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Player from "./Player";
+import {ParamsContext} from "../Context/ParamsContext";
 
 const Bots = (props) => {
 
     const {droppedCard, setDroppedCard, gameStop, setScore, stop, pause, start, level, loading, settings, gamePause} = props
-    const color = ["primary", "success", "danger", "warning", "primary", "success", "danger", "warning", "primary", "success", "danger"]
+    const {params} = useContext(ParamsContext)
 
     return (
         <>
-            {color.slice(0,settings.nbPlayer-1).map((color, index) => {
+            {params.color.slice(0,settings.nbPlayer-1).map((color, index) => {
 
 
                     return (

@@ -3,6 +3,7 @@ import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
 import ResumeMenu from "./ResumeMenu";
 import {ParamsContext} from "../Context/ParamsContext";
+import {StyleSheet} from "react-native";
 
 const Player = (props) => {
 
@@ -232,7 +233,8 @@ const Player = (props) => {
 
 
     return (
-        <div className={`row text-center bg-opacity-50 bg-${color}`}>
+        <div style={styles(color).playerSlot} >
+
 
             {params.playerSlot.map((mapping, index) => {
                 return (
@@ -271,5 +273,18 @@ const Player = (props) => {
 
 }
 
+
+
+const styles = (props) => StyleSheet.create({
+    playerSlot: {
+        flexDirection:'row',
+        backgroundColor:props
+    },
+    autoPlayerSlot: {
+        flexDirection:'row',
+        backgroundColor:props
+
+    },
+});
 
 export default Player;

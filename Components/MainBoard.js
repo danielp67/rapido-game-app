@@ -34,7 +34,7 @@ const MainBoard = () => {
     const initDropZone = () => {
         let tmpDroppedCard = []
         for (let i = 0; i < 4 * settings.nbPlayer; i++) {
-            tmpDroppedCard.push([{value: 0, suit: "secondary"}])
+            tmpDroppedCard.push([{value: 0, suit: "#6c757d"}])
         }
         setDroppedCard(tmpDroppedCard)
         console.log("initDropZone")
@@ -157,7 +157,7 @@ const MainBoard = () => {
                             <Player
                                 realPlayer={true}
                                 playerIndex={1}
-                                color={"secondary"}
+                                color={"#6c757d"}
                                 selectedSlot={selectedSlot}
                                 setSelectedSlot={setSelectedSlot}
                                 droppedCard={droppedCard}
@@ -221,7 +221,9 @@ const styles = StyleSheet.create({
     mainBoard: {
         flex:1,
         backgroundColor: '#8d8d8d',
-        alignItems: 'center',
+        width:'100%',
+
+        //alignItems: 'center',
         justifyContent: 'center',
     },
 });
