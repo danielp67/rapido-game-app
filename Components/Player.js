@@ -239,7 +239,7 @@ const Player = (props) => {
             {params.playerSlot.map((mapping, index) => {
                 return (
 
-                    <div key={index} className="col-2 my-4">
+                    <div key={index} style={styles(color).playerSlot}>
                         <PlayerSlot
                             realPlayer={realPlayer}
                             slotName={mapping}
@@ -263,7 +263,7 @@ const Player = (props) => {
                 )
             })}
 
-            <div className="col-2 my-auto d-flex flex-column">
+            <div>
                 <i className="fa fa-user" aria-hidden="true"/>
                 {playerIndex}
             </div>
@@ -277,11 +277,15 @@ const Player = (props) => {
 
 const styles = (props) => StyleSheet.create({
     playerSlot: {
+        display:'flex',
         flexDirection:'row',
+        alignItems: 'center',
         backgroundColor:props
     },
     autoPlayerSlot: {
+        display:'flex',
         flexDirection:'row',
+        alignItems: 'center',
         backgroundColor:props
 
     },

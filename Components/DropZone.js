@@ -1,12 +1,13 @@
 import React from 'react';
 import SortedSlot from "./SortedSlot";
+import {StyleSheet} from "react-native";
 
 const DropZone = (props) => {
 
     const {setSelectedSlot, droppedCard} = props
 
     return (
-        <div className="row bg-secondary bg-opacity-25 text-center">
+        <div style={styles.dropZone}>
                 {
                     droppedCard.map((mapping, index) => {
                       return(
@@ -25,5 +26,14 @@ const DropZone = (props) => {
 
 }
 
+const styles = StyleSheet.create({
+    dropZone: {
+        display:'flex',
+        justifyContent: 'center',
+        alignItems:'center',
+        width:'75%',
+
+    },
+});
 
 export default DropZone;

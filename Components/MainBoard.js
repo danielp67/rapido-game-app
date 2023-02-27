@@ -126,8 +126,12 @@ const MainBoard = () => {
         setTime(props)
     }
 
+    if(!loading){
+    initDropZone()
+    setLoading(true)
+    }
 
-    if (!loading) {
+    if (loading) {
 
         return (
             <View  style={styles.mainBoard}>
@@ -135,8 +139,7 @@ const MainBoard = () => {
                     <div className="row"
                          style={styles.mainBoard}
                     >
-                        <div style={styles.timer}
-                            className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
+                        <div style={styles.timer}>
                             <Timer
                                 start={start}
                                 pause={pause}
@@ -149,7 +152,7 @@ const MainBoard = () => {
                     </div>
 
                     <div className="row">
-                        <div className="col-12 col-sm-8 col-md-5 col-xl-4 offset-md-2 offset-xl-3">
+                        <div>
                             <DropZone
                                 setSelectedSlot={setSlot}
                                 droppedCard={droppedCard}
@@ -213,18 +216,14 @@ const MainBoard = () => {
 
 const styles = StyleSheet.create({
     timer: {
-        flex:1,
         backgroundColor: '#7b26a0',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    mainBoard: {
-        flex:1,
-        backgroundColor: '#8d8d8d',
         width:'100%',
 
-        //alignItems: 'center',
-        justifyContent: 'center',
+    },
+    mainBoard: {
+        display:'flex',
+        backgroundColor: '#8d8d8d',
+        width:'100%',
     },
 });
 

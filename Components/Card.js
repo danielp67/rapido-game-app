@@ -26,7 +26,9 @@ const Card = (props) => {
                 style={styles(card).playerCard}
                 onTouchEndCapture={(e) => doubleClick(e)}
             >
-                <p className="my-auto fs-4 fw-bold">{card.value}</p>
+                <p
+                    style={styles(card).cardValue}
+                >{card.value}</p>
             </div>
 
         )
@@ -36,7 +38,9 @@ const Card = (props) => {
             <div
                 style={styles(card).autoPlayerCard}
             >
-                <p className="my-auto">{card.value}</p>
+                <p
+                    style={styles(card).cardValue}
+                >{card.value}</p>
             </div>
 
         )
@@ -48,21 +52,29 @@ const Card = (props) => {
 const styles = (props) => StyleSheet.create({
 
     autoPlayerCard:{
-            width: '30px',
-            height: '50px',
-        flex:1,
+        width: '30px',
+        height: '50px',
         backgroundColor: props.suit,
         border:'0.1rem solid',
         borderRadius:'0.3rem',
-        },
+        margin: '5px'
+
+    },
 
     playerCard:{
         width: '50px',
         height: '80px',
-        flex:1,
         backgroundColor: props.suit,
         border:'0.1rem solid',
         borderRadius:'0.3rem',
+        margin: '5px'
+
+    },
+
+    cardValue:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
     }
     });
 

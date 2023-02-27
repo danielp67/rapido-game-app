@@ -1,46 +1,34 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {StyleSheet} from "react-native";
 
 const SortedSlot = (props) => {
 
-    const {slotIndex, setSelectedSlot, droppedCard} = props
-    const [enter, setEnter] = useState(false)
+    const {droppedCard} = props
 
-    const dragEnter = () => {
-        setSelectedSlot(slotIndex)
-        setEnter(true)
-    };
-
-    const dragLeave = () => {
-        setEnter(false)
-    };
-
-    if (enter) {
         return (
-            <div className={`col-2 col-md-2 bg-secondary bg-opacity-50`}
-                 onDragEnter={() => dragEnter()}
-                 onDragLeave={() => dragLeave()}
-            >
-                <div className={`card sortedSlotCard border border-dark border-2 my-1 bg-${droppedCard[0].suit}`}>
-                    <p className="my-auto fs-5 fw-bold">{droppedCard[0].value}</p>
-
-                </div>
-            </div>
-        )
-
-    } else {
-        return (
-            <div className={`col-2 col-md-2`}
-                 onDragEnter={() => dragEnter()}
-            >
-                <div className={`card sortedSlotCard my-1 bg-${droppedCard[0].suit}`}>
+                <div style={styles(droppedCard[0]).sortedSlot}>
                     <p className="t my-auto fs-5 fw-bold">{droppedCard[0].value}</p>
 
                 </div>
-            </div>
         )
-    }
+
 
 }
 
+
+const styles = (props) => StyleSheet.create({
+
+    sortedSlot:{
+        display:'flex',
+        width: '30px',
+        height: '50px',
+        justifyContent: 'center',
+        alignItems:'center',
+        backgroundColor: props.suit,
+        border:'0.1rem solid',
+        borderRadius:'0.3rem',
+        margin: '5px'
+    }
+});
 
 export default SortedSlot;
