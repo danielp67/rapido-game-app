@@ -4,7 +4,7 @@ import ScoringTab from "./ScoringTab";
 import TabGroup from "../Shareable/TabGroup";
 import {ThemeContext} from "../Context/ThemeContext";
 import HomeTab from "./HomeTab";
-import {Button} from "react-native";
+import {Button, View} from "react-native";
 
 const MainMenu = (props) => {
 
@@ -37,11 +37,11 @@ const MainMenu = (props) => {
         <>
             <ThemeContext.Consumer>
                 {({theme}) => (
-                    <div className={"overlay row bg-secondary vh-100"}>
-                        <div
+                    <View className={"overlay row bg-secondary vh-100"}>
+                        <View
                             className={`card col-md-6 col-12 offset-md-3 launch-card text-center my-auto ${theme.className}`}>
                             <TabGroup start={start}/>
-                            <div className="card-body tab-content" id="myTabContent">
+                            <View className="card-body tab-content" id="myTabContent">
                                 <HomeTab
                                     scoring={scoring}
                                     start={start}
@@ -56,12 +56,12 @@ const MainMenu = (props) => {
                                     settings={settings}
                                     setSettings={setSettings}
                                 />
-                                <div className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
+                                <Text className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
                                      aria-labelledby="tuto-tab" tabIndex="0">...
-                                </div>
-                            </div>
+                                </Text>
+                            </View>
 
-                            <div className="card-footer">
+                            <View className="card-footer">
                                 <Button className="btn btn-primary"
                                         onPress={() => setReloading()}
                                         disabled={winner}
@@ -75,10 +75,10 @@ const MainMenu = (props) => {
 
                                 />
 
-                            </div>
+                            </View>
 
-                        </div>
-                    </div>
+                        </View>
+                    </View>
                 )}
             </ThemeContext.Consumer>
         </>

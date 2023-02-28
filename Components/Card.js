@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 const Card = (props) => {
     const {setCardOnDbClick, slotName, card, realPlayer} = props
@@ -22,26 +22,27 @@ const Card = (props) => {
 
     if(realPlayer) {
         return (
-            <div
+            <View
                 style={styles(card).playerCard}
                 onTouchEndCapture={(e) => doubleClick(e)}
+                onDoubleClick={(e) => doubleClick(e)}
             >
-                <p
+                <Text
                     style={styles(card).cardValue}
-                >{card.value}</p>
-            </div>
+                >{card.value}</Text>
+            </View>
 
         )
     }
     else{
         return (
-            <div
+            <View
                 style={styles(card).autoPlayerCard}
             >
-                <p
+                <Text
                     style={styles(card).cardValue}
-                >{card.value}</p>
-            </div>
+                >{card.value}</Text>
+            </View>
 
         )
     }
@@ -52,13 +53,14 @@ const Card = (props) => {
 const styles = (props) => StyleSheet.create({
 
     autoPlayerCard:{
-        width: '30px',
-        height: '50px',
+        width: '25px',
+        height: '40px',
         backgroundColor: props.suit,
         border:'0.1rem solid',
         borderRadius:'0.3rem',
-        margin: '5px'
-
+        margin: '5px',
+        justifyContent: 'center',
+        alignItems:'center',
     },
 
     playerCard:{
@@ -67,7 +69,9 @@ const styles = (props) => StyleSheet.create({
         backgroundColor: props.suit,
         border:'0.1rem solid',
         borderRadius:'0.3rem',
-        margin: '5px'
+        margin: '5px',
+        justifyContent: 'center',
+        alignItems:'center',
 
     },
 

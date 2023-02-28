@@ -3,7 +3,7 @@ import NextButton from "./NextButton";
 import PlayerSlot from "./PlayerSlot";
 import ResumeMenu from "./ResumeMenu";
 import {ParamsContext} from "../Context/ParamsContext";
-import {StyleSheet} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 const Player = (props) => {
 
@@ -233,13 +233,13 @@ const Player = (props) => {
 
 
     return (
-        <div style={styles(color).playerSlot} >
+        <View style={styles(color).playerSlot} >
 
 
             {params.playerSlot.map((mapping, index) => {
                 return (
 
-                    <div key={index} style={styles(color).playerSlot}>
+                    <View key={index} style={styles(color).playerSlot}>
                         <PlayerSlot
                             realPlayer={realPlayer}
                             slotName={mapping}
@@ -259,16 +259,16 @@ const Player = (props) => {
                             />
                             : null}
 
-                    </div>
+                    </View>
                 )
             })}
 
-            <div>
+            <Text>
                 <i className="fa fa-user" aria-hidden="true"/>
                 {playerIndex}
-            </div>
+            </Text>
 
-        </div>
+        </View>
     )
 
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Text, View} from "react-native";
 
 const HomeTab = (props) => {
 
@@ -6,33 +7,33 @@ const HomeTab = (props) => {
 
     return (
         <>
-            <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
+            <View className="tab-pane fade show active" id="home-tab-pane" role="tabpanel"
                  aria-labelledby="home-tab" tabIndex="0">
 
-                <h4 className="card-title fw-bold">Rapido game</h4>
+                <Text className="card-title fw-bold">Rapido game</Text>
                 {!start ?
-                    <div>
+                    <Text>
                         Bienvenue dans Rapido Game !<br/>
                         Commencer une nouvelle partie ?
-                    </div>
+                    </Text>
 
-                    : <div>
+                    : <Text>
                         Manche n°{scoring.partNb}<br/>
                         Gagnant de la manche : joueur n°{winnerMatch.playerIndex}
-                    </div>
+                    </Text>
                 }
 
                 {scoring.partNb > 0 && winner ?
 
-                    <div>
+                    <Text>
                         Le jeu est fini, le vainqueur est le joueur n°{winnerGame.playerIndex}<br/>
                         Commencer une nouvelle partie ?
-                    </div>
+                    </Text>
 
                     : null
                 }
 
-            </div>
+            </View>
 
         </>
     )

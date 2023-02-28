@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from "react-native";
 
 const NextButton = (props)=> {
 
@@ -6,9 +7,10 @@ const NextButton = (props)=> {
 
         return (
 
-            <button type="button" className="btn btn-info btn-lg my-2" onClick={nextCard}>
-                <i className="fa fa-refresh" aria-hidden="true"/>
-            </button>
+            <Button type="button" className="btn btn-info btn-lg my-2"
+                    onPress={nextCard}>
+                Next
+            </Button>
 
         )
 

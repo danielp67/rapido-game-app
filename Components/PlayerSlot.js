@@ -15,9 +15,6 @@ const PlayerSlot = (props) => {
                     drop={drop}
                 />
         )
-
-
-
 }
 
 

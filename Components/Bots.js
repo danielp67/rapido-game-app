@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import Player from "./Player";
 import {ParamsContext} from "../Context/ParamsContext";
+import {View} from "react-native";
 
 const Bots = (props) => {
 
@@ -8,7 +9,7 @@ const Bots = (props) => {
     const {params} = useContext(ParamsContext)
 
     return (
-        <>
+        <View>
             {params.color.slice(0,settings.nbPlayer-1).map((color, index) => {
 
 
@@ -33,7 +34,7 @@ const Bots = (props) => {
                     )
                 }
             )}
-        </>)
+        </View>)
 
 };
 

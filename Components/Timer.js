@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import {Text, View} from "react-native";
 
 const Timer = (props) => {
 
@@ -24,13 +25,13 @@ const Timer = (props) => {
 
 
     return (
-        <div className="row">
-           <div className="col-8 fs-3">Rapido Game  </div>
-            <div className="col-4 fs-3 text-end">
+        <View className="row">
+           <Text className="col-8 fs-3">Rapido Game  </Text>
+            <Text className="col-4 fs-3 text-end">
             <i className="fa fa-clock-o" aria-hidden="true"/>
             {timerOn ? " " + time +" s": " - "}
-            </div>
-        </div>
+            </Text>
+        </View>
     )
 
 };

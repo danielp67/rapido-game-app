@@ -136,10 +136,10 @@ const MainBoard = () => {
         return (
             <View  style={styles.mainBoard}>
                 <ScoreContext.Provider value={{score: scoring, partNb: partNb}}>
-                    <div className="row"
+                    <View className="row"
                          style={styles.mainBoard}
                     >
-                        <div style={styles.timer}>
+                        <View style={styles.timer}>
                             <Timer
                                 start={start}
                                 pause={pause}
@@ -148,11 +148,11 @@ const MainBoard = () => {
                                 stop={stop}
                                 timerOn={settings.switchTimer}
                             />
-                        </div>
-                    </div>
+                        </View>
+                    </View>
 
-                    <div className="row">
-                        <div>
+                    <View style={styles.bottomSection}>
+                        <View style={styles.leftSection}>
                             <DropZone
                                 setSelectedSlot={setSlot}
                                 droppedCard={droppedCard}
@@ -175,9 +175,9 @@ const MainBoard = () => {
                                 gamePause={gamePause}
 
                             />
-                        </div>
+                        </View>
 
-                        <div className="col-4 col-md-3 col-xl-2 d-none d-sm-block">
+                        <View style={styles.rightSection}>
                             <Bots
                                 start={start}
                                 stop={stop}
@@ -192,8 +192,8 @@ const MainBoard = () => {
                                 gamePause={gamePause}
 
                             />
-                        </div>
-                    </div>
+                        </View>
+                    </View>
                 </ScoreContext.Provider>
 
             </View>
@@ -225,6 +225,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#8d8d8d',
         width:'100%',
     },
+    bottomSection:{
+      display:'flex',
+      flexDirection:'row'
+    },
+    leftSection:{
+        width:'70%'
+    },
+
+    rightSection:{
+        width:'30%'
+    }
 });
 
 

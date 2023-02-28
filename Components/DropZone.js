@@ -1,13 +1,14 @@
 import React from 'react';
 import SortedSlot from "./SortedSlot";
-import {StyleSheet} from "react-native";
+import {StyleSheet, View, ViewComponent} from "react-native";
+import {ViewProps} from "react-native-web/dist/exports/View";
 
 const DropZone = (props) => {
 
     const {setSelectedSlot, droppedCard} = props
 
     return (
-        <div style={styles.dropZone}>
+        <View style={styles.dropZone}>
                 {
                     droppedCard.map((mapping, index) => {
                       return(
@@ -21,7 +22,7 @@ const DropZone = (props) => {
                     })
                 }
 
-        </div>
+        </View>
     )
 
 }
@@ -29,10 +30,9 @@ const DropZone = (props) => {
 const styles = StyleSheet.create({
     dropZone: {
         display:'flex',
-        justifyContent: 'center',
         alignItems:'center',
-        width:'75%',
-
+        flexDirection:'row',
+        flexWrap: 'wrap',
     },
 });
 

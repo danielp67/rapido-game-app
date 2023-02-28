@@ -1,15 +1,15 @@
 import React from 'react';
-import {StyleSheet} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 const SortedSlot = (props) => {
 
     const {droppedCard} = props
 
         return (
-                <div style={styles(droppedCard[0]).sortedSlot}>
-                    <p className="t my-auto fs-5 fw-bold">{droppedCard[0].value}</p>
+                <View style={styles(droppedCard[0]).sortedSlot}>
+                    <Text className="t my-auto fs-5 fw-bold">{droppedCard[0].value}</Text>
 
-                </div>
+                </View>
         )
 
 
@@ -20,14 +20,14 @@ const styles = (props) => StyleSheet.create({
 
     sortedSlot:{
         display:'flex',
-        width: '30px',
+        width: '6%',
         height: '50px',
         justifyContent: 'center',
         alignItems:'center',
         backgroundColor: props.suit,
         border:'0.1rem solid',
         borderRadius:'0.3rem',
-        margin: '5px'
+        margin: '15px'
     }
 });
 
