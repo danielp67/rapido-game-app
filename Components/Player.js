@@ -141,6 +141,7 @@ const Player = (props) => {
 
             for (let j = 0; j < params.playerSlot.length; j++) {
 
+                if(deck[slotName]!==''){
                 let slotName = params.playerSlot[j]
                 let currentCard = deck[slotName][0]
 
@@ -148,6 +149,7 @@ const Player = (props) => {
 
                     isCardDropped = true
                     dropCard(slotName, currentCard, tmpDroppedCard, i)
+                }
                 }
             }
         }
@@ -239,7 +241,7 @@ const Player = (props) => {
             {params.playerSlot.map((mapping, index) => {
                 return (
 
-                    <View key={index} style={styles(color).playerSlot}>
+                    <View key={index} style={styles(color).slot}>
                         <PlayerSlot
                             realPlayer={realPlayer}
                             slotName={mapping}
@@ -251,8 +253,12 @@ const Player = (props) => {
                         {realPlayer && mapping === "reserveSlot" ? <NextButton
                             nextCard={nextCard}
                         /> : null}
-                        {mapping === "reserveSlot" || mapping === "rapidoSlot" ? deck[mapping].length : null}
-                        {mapping === "tmpSlot2" && realPlayer ?
+
+                        <Text>
+                            {mapping === "reserveSlot" || mapping === "rapidoSlot" ? deck[mapping].length : " "}
+                        </Text>
+
+                            {mapping === "tmpSlot2" && realPlayer ?
 
                             <ResumeMenu
                                 gamePause={gamePause}
@@ -264,7 +270,6 @@ const Player = (props) => {
             })}
 
             <Text>
-                <i className="fa fa-user" aria-hidden="true"/>
                 {playerIndex}
             </Text>
 
@@ -279,13 +284,14 @@ const styles = (props) => StyleSheet.create({
     playerSlot: {
         display:'flex',
         flexDirection:'row',
-        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems:'center',
         backgroundColor:props
     },
-    autoPlayerSlot: {
+    slot: {
         display:'flex',
-        flexDirection:'row',
-        alignItems: 'center',
+        flexDirection:'column',
+        alignItems:'center',
         backgroundColor:props
 
     },

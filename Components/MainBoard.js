@@ -230,11 +230,11 @@ const styles = StyleSheet.create({
       flexDirection:'row'
     },
     leftSection:{
-        width:'70%'
+        width:'60%'
     },
 
     rightSection:{
-        width:'30%'
+        width:'40%'
     }
 });
 

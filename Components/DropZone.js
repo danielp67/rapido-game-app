@@ -1,7 +1,6 @@
 import React from 'react';
 import SortedSlot from "./SortedSlot";
-import {StyleSheet, View, ViewComponent} from "react-native";
-import {ViewProps} from "react-native-web/dist/exports/View";
+import {StyleSheet, View} from "react-native";
 
 const DropZone = (props) => {
 

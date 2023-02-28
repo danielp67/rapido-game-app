@@ -53,23 +53,23 @@ const Card = (props) => {
 const styles = (props) => StyleSheet.create({
 
     autoPlayerCard:{
-        width: '25px',
-        height: '40px',
+        width: 30,
+        height: 50,
         backgroundColor: props.suit,
-        border:'0.1rem solid',
-        borderRadius:'0.3rem',
-        margin: '5px',
+        border:'solid',
+        borderRadius:3,
+        margin: 5,
         justifyContent: 'center',
         alignItems:'center',
     },
 
     playerCard:{
-        width: '50px',
-        height: '80px',
+        width: 50,
+        height: 80,
         backgroundColor: props.suit,
-        border:'0.1rem solid',
-        borderRadius:'0.3rem',
-        margin: '5px',
+        border:'solid',
+        borderRadius:3,
+        margin: 5,
         justifyContent: 'center',
         alignItems:'center',
 

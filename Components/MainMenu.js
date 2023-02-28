@@ -4,7 +4,7 @@ import ScoringTab from "./ScoringTab";
 import TabGroup from "../Shareable/TabGroup";
 import {ThemeContext} from "../Context/ThemeContext";
 import HomeTab from "./HomeTab";
-import {Button, View} from "react-native";
+import {Button, Text, View} from "react-native";
 
 const MainMenu = (props) => {
 

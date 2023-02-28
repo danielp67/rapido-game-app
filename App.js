@@ -5,9 +5,7 @@ import MainBoard from "./Components/MainBoard";
 export default function App() {
   return (
     <View style={styles.container}>
-      <div className={`container-fluid min-vh-100 bg-secondary`}>
           <MainBoard/>
-      </div>
     </View>
   );
 }

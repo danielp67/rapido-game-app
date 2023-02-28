@@ -8,10 +8,9 @@ const NextButton = (props)=> {
         return (
 
             <Button type="button" className="btn btn-info btn-lg my-2"
-                    onPress={nextCard}>
-                Next
-            </Button>
-
+                    onPress={nextCard}
+                    title={"NEXT"}
+            />
         )
 
 }

@@ -62,7 +62,7 @@ const ScoringTab = ({scoring}) => {
     return (
         <ThemeContext.Consumer>
             {({theme}) => (
-                <div className="tab-pane fade" id="score-tab-pane" role="tabpanel"
+                /*<div className="tab-pane fade" id="score-tab-pane" role="tabpanel"
                      aria-labelledby="score-tab" tabIndex="0">
                     <table
                         data-toggle="table"
@@ -110,8 +110,8 @@ const ScoringTab = ({scoring}) => {
 
                         </tbody>
                     </table>
-                </div>
-            )}
+                </div>*/
+           " " )}
         </ThemeContext.Consumer>
     )
 }

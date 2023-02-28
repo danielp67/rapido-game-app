@@ -28,7 +28,6 @@ const Timer = (props) => {
         <View className="row">
            <Text className="col-8 fs-3">Rapido Game  </Text>
             <Text className="col-4 fs-3 text-end">
-            <i className="fa fa-clock-o" aria-hidden="true"/>
             {timerOn ? " " + time +" s": " - "}
             </Text>
         </View>
