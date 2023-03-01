@@ -1,5 +1,6 @@
 import React from 'react';
 import {ThemeContext} from "../Context/ThemeContext";
+import {View} from "react-native";
 
 const Modal = ({id, children}) => {
 
@@ -7,15 +8,15 @@ const Modal = ({id, children}) => {
 
             <ThemeContext.Consumer>
                 {({theme}) => (
-            <div className="modal fade" id={id} aria-hidden="true"
+            <View className="modal fade" id={id} aria-hidden="true"
                  data-bs-backdrop="static" data-bs-keyboard="false"
                  aria-labelledby={id} tabIndex="-1" style={{display: "none"}}>
-                <div className="modal-dialog modal-dialog-centered">
-                    <div className={`modal-content ${theme.className}`}>
+                <View className="modal-dialog modal-dialog-centered">
+                    <View className={`modal-content ${theme.className}`}>
                         {children}
-                    </div>
-                </div>
-            </div>
+                    </View>
+                </View>
+            </View>
                 )}
             </ThemeContext.Consumer>
 

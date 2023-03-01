@@ -22,7 +22,8 @@ const Player = (props) => {
         setScore,
         level,
         loading,
-        gamePause
+        gamePause,
+        isVisible
     } = props
     const {params} = useContext(ParamsContext)
     const [currentCard, setCurrentCard] = useState({})
@@ -262,6 +263,7 @@ const Player = (props) => {
 
                             <ResumeMenu
                                 gamePause={gamePause}
+                                isVisible={isVisible}
                             />
                             : null}
 

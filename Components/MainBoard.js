@@ -6,6 +6,7 @@ import Player from "./Player";
 import MainMenu from "./MainMenu";
 import {ScoreContext} from "../Context/ScoreContext";
 import {StyleSheet, View} from "react-native";
+import ResumeMenu from "./ResumeMenu";
 
 const MainBoard = () => {
 
@@ -15,6 +16,7 @@ const MainBoard = () => {
     const [pause, setPause] = useState(false)
     const [start, setStart] = useState(false)
     const [loading, setLoading] = useState(false)
+    const [isVisible, setVisible] = useState(false)
     const [time, setTime] = useState(0)
     const {score, partNb} = useContext(ScoreContext)
     const [scoring, setScoring] = useState({score: [...score], partNb: partNb})
@@ -72,6 +74,7 @@ const MainBoard = () => {
         }
         else{
             setPause(props)
+            setVisible(props)
             clearTimeout()
         }
     }
@@ -173,6 +176,7 @@ const MainBoard = () => {
                                 level={parseInt(settings.level)}
                                 loading={loading}
                                 gamePause={gamePause}
+                                isVisible={isVisible}
 
                             />
                         </View>
@@ -216,7 +220,8 @@ const MainBoard = () => {
 
 const styles = StyleSheet.create({
     timer: {
-        backgroundColor: '#7b26a0',
+        backgroundColor: '#818181',
+        color:'#ffffff',
         width:'100%',
 
     },
