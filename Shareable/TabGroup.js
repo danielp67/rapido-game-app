@@ -7,22 +7,25 @@ const TabGroup = ({start}) => {
 
 
     return (
-        <FlatList className=" nav nav-tabs" id="myTab" role="tablist">
-            {items.map((mapping, index) => {
+
+    <FlatList
+        data={items}
+        renderItem={ ({item}) => {
                 let disabled = false
-                if((mapping === "settings" && start) || (mapping === "score" && !start))
+                if((item === "settings" && start) || (item === "score" && !start))
                 {
                     disabled=true
                 }
                 return(
                     <TabItem
-                        key={index}
-                        id={mapping}
+                       // key={index}
+                        id={item}
                         disabled={disabled}
                     />
                 )
-            })}
-        </FlatList>
+            }
+        }
+    />
     )
 }
 
