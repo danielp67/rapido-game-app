@@ -88,7 +88,7 @@ const MainBoard = () => {
             total: tmpScoring[playerIndex - 1].total ? tmpScoring[playerIndex - 1].total : 0
         }
         count++
-        if (tmpScoring.length === settings.nbPlayer * 1 && loading && count === settings.nbPlayer * 2) {
+        if (tmpScoring.length === settings.nbPlayer * 1 && loading && count === settings.nbPlayer*1) {
 
             tmpScoring = tmpScoring.map((mapping, index) => {
                 return (
@@ -104,7 +104,6 @@ const MainBoard = () => {
             scoring.partNb++
             setScoring({score: tmpScoring, partNb: scoring.partNb})
             setLoading(false)
-
 
         }
     }

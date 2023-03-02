@@ -162,7 +162,7 @@ const Player = (props) => {
 
     const sendScore = () => {
         let tmpDeck = {...deck}
-        console.log(tmpDeck.rapidoSlot, playerIndex)
+     //   console.log(tmpDeck.rapidoSlot[0], playerIndex)
         let score = 40 - tmpDeck.reserveSlot.length
             - (tmpDeck.tmpSlot1[0].value !== "X" ? tmpDeck.tmpSlot1.length : 0)
             - (tmpDeck.tmpSlot2[0].value !== "X" ? tmpDeck.tmpSlot2.length : 0)
@@ -186,9 +186,9 @@ const Player = (props) => {
         }
 
         if (tmpDeck["rapidoSlot"].length === 0) {
-           // console.log("winner")
-            gameStop(playerIndex)
+            //console.log("winner")
             tmpDeck["rapidoSlot"].unshift({value: "X", suit: "secondary"})
+            gameStop(playerIndex)
         }
 
 
@@ -229,7 +229,7 @@ const Player = (props) => {
 
     useEffect(() => {
         const playerSpeed = setTimeout(() => {
-            if (!realPlayer && !pause) {
+            if (!realPlayer && !pause && !stop) {
                 checkCardDroppable()
                 refreshPlayerTime()
             }

@@ -26,7 +26,7 @@ const Timer = (props) => {
 
     return (
         <View style={styles.timer}>
-           <Text style={styles.timer}>Rapido Game  </Text>
+           <Text style={styles.timer}>Rapido Game</Text>
             <Text style={styles.timer}>
             {timerOn ? " " + time +" s": " - "}
             </Text>
