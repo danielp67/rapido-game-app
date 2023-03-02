@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {ThemeContext} from "../Context/ThemeContext";
+import {Text} from "react-native";
 
 const ScoringTab = ({scoring}) => {
 
@@ -111,7 +112,7 @@ const ScoringTab = ({scoring}) => {
                         </tbody>
                     </table>
                 </div>*/
-           " " )}
+           <Text> </Text> )}
         </ThemeContext.Consumer>
     )
 }

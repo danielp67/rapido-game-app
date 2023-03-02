@@ -29,7 +29,7 @@ const Player = (props) => {
     const [currentCard, setCurrentCard] = useState({})
     const [slotName, setSlotName] = useState({})
     const [playerTime, setPlayerTime] = useState(0)
-
+    const [scoring, setScoring] = useState(false)
     const [initPlayer, setInitPlayer] = useState(false)
     const [deck, setDeck] = useState(
         {
@@ -162,6 +162,7 @@ const Player = (props) => {
 
     const sendScore = () => {
         let tmpDeck = {...deck}
+        console.log(tmpDeck.rapidoSlot, playerIndex)
         let score = 40 - tmpDeck.reserveSlot.length
             - (tmpDeck.tmpSlot1[0].value !== "X" ? tmpDeck.tmpSlot1.length : 0)
             - (tmpDeck.tmpSlot2[0].value !== "X" ? tmpDeck.tmpSlot2.length : 0)
@@ -208,12 +209,15 @@ const Player = (props) => {
     if (!initPlayer) {
         initDeck()
         setInitPlayer(true)
+        setScoring(true)
 
 
     }
 
-    if (stop && loading) {
+    if (stop && loading && scoring) {
         sendScore()
+        setScoring(false)
+
     }
 
     const refreshPlayerTime = () => {

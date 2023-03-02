@@ -1,12 +1,13 @@
 import React from 'react';
 import TabItem from "./TabItem";
+import {FlatList} from "react-native";
 
 const TabGroup = ({start}) => {
     const items = ["home", "score", "settings", "tuto"]
 
 
     return (
-        <ul className=" nav nav-tabs" id="myTab" role="tablist">
+        <FlatList className=" nav nav-tabs" id="myTab" role="tablist">
             {items.map((mapping, index) => {
                 let disabled = false
                 if((mapping === "settings" && start) || (mapping === "score" && !start))
@@ -21,7 +22,7 @@ const TabGroup = ({start}) => {
                     />
                 )
             })}
-        </ul>
+        </FlatList>
     )
 }
 

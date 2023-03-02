@@ -25,7 +25,7 @@ const MainBoard = () => {
     const [settings, sendSettings] = useState(
         {
             nbPlayer: "4",
-            level: "1000",
+            level: "100",
             switchCountScore: true,
             switchTimer: true,
             switchDarkMode: true
@@ -39,7 +39,6 @@ const MainBoard = () => {
             tmpDroppedCard.push([{value: 0, suit: "#6c757d"}])
         }
         setDroppedCard(tmpDroppedCard)
-        console.log("initDropZone")
 
     }
 
@@ -54,6 +53,7 @@ const MainBoard = () => {
 
     const reloadGame = (props) => {
       //  console.log(props)
+        setVisible(false)
         setPause(false)
         setStop(false)
         setStart(false)
@@ -62,7 +62,7 @@ const MainBoard = () => {
     }
 
     const gameStop = (props) => {
-      //  console.log("player win :" + props)
+        console.log("player win :" + props)
         setStop(true)
         clearTimeout()
     }
@@ -114,8 +114,8 @@ const MainBoard = () => {
     }
 
     const setReloading = () => {
-        console.log("setReloading")
 
+        setVisible(false)
         setStop(false)
         setPause(false)
         setStart(true)
@@ -129,10 +129,10 @@ const MainBoard = () => {
         setTime(props)
     }
 
-    if(!loading){
+/*    if(!loading){
     initDropZone()
     setLoading(true)
-    }
+    }*/
 
     if (loading) {
 
@@ -220,14 +220,11 @@ const MainBoard = () => {
 
 const styles = StyleSheet.create({
     timer: {
-        backgroundColor: '#818181',
-        color:'#ffffff',
         width:'100%',
 
     },
     mainBoard: {
         display:'flex',
-        backgroundColor: '#8d8d8d',
         width:'100%',
     },
     bottomSection:{

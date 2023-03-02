@@ -3,6 +3,7 @@ import SwitchButton from "../Shareable/SwitchButton";
 import {ThemeContext} from "../Context/ThemeContext";
 import RadioGroup from "../Shareable/RadioGroup";
 import {ParamsContext} from "../Context/ParamsContext";
+import {Text, View} from "react-native";
 
 
 const SettingsTab = (props) => {
@@ -22,42 +23,20 @@ const SettingsTab = (props) => {
                                 [name]: value !== "on" ? value : checked,
                             }));
 
-                            if (name === "switchDarkMode") {
-                                toggleTheme()
-                            }
+
                         }
 
                         return (
-                            <div className="tab-pane fade" id="settings-tab-pane" role="tabpanel"
+                            <View className="tab-pane fade" id="settings-tab-pane" role="tabpanel"
                                  aria-labelledby="settings-tab" tabIndex="0">
-                                <div className={"text-start"}>
-                                    Nombre de joueurs :
-                                    <RadioGroup
-                                        settings={settings}
-                                        name={"nbPlayer"}
-                                        radioParams={params.radioNbPlayer}
-                                        handleChange={handleChange}
-                                    />
-                                    <hr/>
-                                    Level :
+                                    <Text>Level :</Text>
                                     <RadioGroup
                                         settings={settings}
                                         name={"level"}
                                         radioParams={params.radioLevel}
                                         handleChange={handleChange}
                                     />
-                                    <hr/>
-                                    {params.switchParams.map((mapping, index) => (
-                                        <SwitchButton
-                                            key={index}
-                                            settings={settings}
-                                            name={mapping.name}
-                                            onChange={handleChange}
-                                            label={mapping.label}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
+                            </View>
                         )
                     }}
                 </ThemeContext.Consumer>

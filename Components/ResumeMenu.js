@@ -16,13 +16,13 @@ const ResumeMenu = (props) => {
                     title={"Pause"}
             />
 
-
+            <View style={styles.modal}>
             <Modal
                 animationType = {"fade"}
                 transparent = {true}
                 visible = {isVisible}
                 onRequestClose = {() =>{ console.log("Modal has been closed.") } }>
-                <View style={styles.modal}>
+                <View style={styles.text}>
                     <Text className="modal-title fs-5" id="staticBackdropLabel">
                         Pause
                     </Text>
@@ -39,10 +39,8 @@ const ResumeMenu = (props) => {
                             title={"Continuer"}
                     />
                 </View>
-
-
-
             </Modal>
+            </View>
 
             {/*<Modal id={"staticBackdropResume"}>
 
@@ -79,15 +77,21 @@ const ResumeMenu = (props) => {
 
 const styles = StyleSheet.create({
     modal: {
-        backgroundColor: '#818181',
+        backgroundColor: '#000000',
         color:'#ffffff',
-        width:'50%',
-
+        width:'100%',
+        display:'flex',
+        alignItems:'center',
+     //   justifyContent:'center'
     },
     text: {
+        backgroundColor: '#000000',
+        color:'#ffffff',
+
+        width:'50%',
         display:'flex',
-        backgroundColor: '#8d8d8d',
-        width:'10%',
+        alignItems:'center',
+     //   justifyContent:'center'
     }
 });
 

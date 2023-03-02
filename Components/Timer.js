@@ -37,14 +37,13 @@ const Timer = (props) => {
 
 const styles = StyleSheet.create({
     timer: {
-        backgroundColor: '#000000',
         fontSize: 20,
         color: '#ffffff',
         width: '100%',
         display:'flex',
         flexDirection:'row',
         alignItems: 'center',
-        justifyContent:'between',
+     //   justifyContent:'between',
         paddingHorizontal: 50,
         paddingVertical: 10
     },

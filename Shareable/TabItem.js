@@ -1,12 +1,12 @@
 import React from 'react';
-import {Button} from "react-native";
+import {Button, FlatList} from "react-native";
 
 const TabItem = (props) => {
 
     const {id, disabled} = props
 
     return (
-        <li className="nav-item" role="presentation">
+        <View className="nav-item" role="presentation">
             <Button
                     onPress={()=>console.log("hello")}
                     className={`nav-link text-capitalize ${id === "home"? "active" : ""}`}
@@ -17,7 +17,7 @@ const TabItem = (props) => {
                     title={id}
             />
 
-        </li>
+        </View>
     )
 }
 

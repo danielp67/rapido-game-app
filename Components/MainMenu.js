@@ -38,10 +38,9 @@ const MainMenu = (props) => {
             <ThemeContext.Consumer>
                 {({theme}) => (
                     <View className={"overlay row bg-secondary vh-100"}>
-                        <View
-                            className={`card col-md-6 col-12 offset-md-3 launch-card text-center my-auto ${theme.className}`}>
+                        <View>
                             <TabGroup start={start}/>
-                            <View className="card-body tab-content" id="myTabContent">
+                            <View>
                                 <HomeTab
                                     scoring={scoring}
                                     start={start}
@@ -56,9 +55,9 @@ const MainMenu = (props) => {
                                     settings={settings}
                                     setSettings={setSettings}
                                 />
-                                <Text className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
+                                {/*<Text className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
                                      aria-labelledby="tuto-tab" tabIndex="0">...
-                                </Text>
+                                </Text>*/}
                             </View>
 
                             <View className="card-footer">
