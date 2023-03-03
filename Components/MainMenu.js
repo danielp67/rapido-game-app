@@ -4,7 +4,7 @@ import ScoringTab from "./ScoringTab";
 import TabGroup from "../Shareable/TabGroup";
 import {ThemeContext} from "../Context/ThemeContext";
 import HomeTab from "./HomeTab";
-import {Button, Text, View} from "react-native";
+import {Button, StyleSheet, Text, View} from "react-native";
 
 const MainMenu = (props) => {
 
@@ -39,8 +39,12 @@ const MainMenu = (props) => {
                 {({theme}) => (
                     <View className={"overlay row bg-secondary vh-100"}>
                         <View>
-                            <TabGroup start={start}/>
                             <View>
+
+                            <TabGroup start={start} style={styles.tabGroup}/>
+                            </View>
+                            <View>
+                                <View style={styles.homeTab}>
                                 <HomeTab
                                     scoring={scoring}
                                     start={start}
@@ -48,6 +52,7 @@ const MainMenu = (props) => {
                                     winnerGame={winnerGame[0]}
                                     winnerMatch={winnerMatch[0]}
                                 />
+                                </View>
                                 <ScoringTab
                                     scoring={scoring}
                                 />
@@ -60,7 +65,6 @@ const MainMenu = (props) => {
                                 </Text>*/}
                             </View>
 
-                            <View className="card-footer">
                                 <Button className="btn btn-primary"
                                         onPress={() => setReloading()}
                                         disabled={winner}
@@ -74,7 +78,6 @@ const MainMenu = (props) => {
 
                                 />
 
-                            </View>
 
                         </View>
                     </View>
@@ -83,5 +86,16 @@ const MainMenu = (props) => {
         </>
     )
 };
+
+
+
+const styles = StyleSheet.create({
+    tabGroup:{
+      //  height:100,
+    },
+    homeTab:{
+        height:'auto',
+    },
+});
 
 export default MainMenu;

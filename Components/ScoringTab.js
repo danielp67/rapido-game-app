@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {ThemeContext} from "../Context/ThemeContext";
-import {Text} from "react-native";
+import {Button, FlatList, StyleSheet, Text, View} from "react-native";
+import TabItem from "../Shareable/TabItem";
 
 const ScoringTab = ({scoring}) => {
 
@@ -61,60 +62,49 @@ const ScoringTab = ({scoring}) => {
     const {currentScore, total, playerIndex} = sort;
 
     return (
-        <ThemeContext.Consumer>
-            {({theme}) => (
-                /*<div className="tab-pane fade" id="score-tab-pane" role="tabpanel"
-                     aria-labelledby="score-tab" tabIndex="0">
-                    <table
-                        data-toggle="table"
-                        data-search="true"
-                        data-filter-control="true"
-                        data-show-export="true"
-                        data-click-to-select="true"
-                        data-toolbar="#toolbar"
+        <View>
 
-                        className={`table table-hover table-striped ${theme.className}`}>
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Player
-                                <i className={`fa fa-${sortTypes[playerIndex].class}`}
-                                   onClick={() => onSort("playerIndex")}/>
-                            </th>
-                            <th scope="col">Points
-                                <i className={`fa fa-${sortTypes[currentScore].class}`}
-                                   onClick={() => onSort("currentScore")}/>
-                            </th>
-                            <th scope="col">Total
-                                <i className={`fa fa-${sortTypes[total].class}`} onClick={() => onSort("total")}/>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {
-                            sortScore.map((mapping, index) => {
-                                let className = ""
-                                if (mapping.playerIndex === 1) {
-                                    className = "fw-bold"
-                                }
-                                return (
-                                    <tr key={index} className={className}>
-                                        <th scope="row">{index + 1}</th>
-                                        <td>{mapping.playerIndex}</td>
-                                        <td>{mapping.currentScore}</td>
-                                        <td>{mapping.total}</td>
-                                    </tr>
+            <FlatList
+                data={["Player", "Points","Total"]}
+                horizontal={true}
+                renderItem={ ({item}) => {
+                    return(
+                        <Button
+                            title={item}
+                        />
+                    )
+                }
+                }
+            />
 
-                                )
-                            })
+
+            <FlatList
+                data={sortScore}
+                horizontal={true}
+                renderItem={ ({item}) => {
+                            return (
+                                <View style={styles.scoringRow}
+                                  //  key={}
+                                >
+                                    <Text>{item.playerIndex}</Text>
+                                    <Text>{item.currentScore}</Text>
+                                    <Text>{item.total}</Text>
+                                </View>
+
+                            )
                         }
-
-                        </tbody>
-                    </table>
-                </div>*/
-           <Text> </Text> )}
-        </ThemeContext.Consumer>
+                    }
+            />
+        </View>
     )
 }
+
+const styles = StyleSheet.create({
+    scoringRow:{
+        display:'flex',
+        flewDirection:'row',
+    },
+
+});
 
 export default ScoringTab;
