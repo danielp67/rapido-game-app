@@ -45,10 +45,10 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: android-artifact
-          path: ./android/
+          path: ./../android/
 
       - name: Generate the android app bundle
-        working-directory: /android/
+        working-directory: ./android/
         run: |
           ./gradlew bundle
           ./gradlew assembleDebug
