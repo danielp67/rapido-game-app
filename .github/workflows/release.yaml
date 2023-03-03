@@ -48,7 +48,7 @@ jobs:
           path: android/
 
       - name: Generate the android app bundle
-        working-directory: /android
+        working-directory: ./android/
         run: |
           ./gradlew bundle
           ./gradlew assembleDebug
