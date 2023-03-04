@@ -23,7 +23,7 @@ jobs:
 #        uses: actions/setup-node@v1
 #        with:
 #          node-version: 14.x
-
+#
 #      - name: Install Ionic
 #        run: npm install -g @ionic/cli
 #
@@ -50,7 +50,7 @@ jobs:
       - name: Generate the android app bundle
         working-directory: ./android/
         run: |
-          ./gradlew bundle
+          ./gradlew bundle --stacktrace
           ./gradlew assembleDebug
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
