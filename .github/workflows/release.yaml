@@ -66,7 +66,7 @@ jobs:
 
       - name: Generate App APK
         run: |
-          cd android && ./gradlew assembleRelease --no-daemon
+          cd android && ./gradlew assembleRelease
 #      - name: Generate the android app bundle
 #        working-directory: ./android/
 #        run: |
