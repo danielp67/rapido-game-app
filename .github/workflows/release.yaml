@@ -47,11 +47,17 @@ jobs:
           name: android-artifact
           path: android/
 
-      - name: Generate the android app bundle
-        working-directory: ./android/
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
+      - name: Generate App APK
         run: |
-          ./gradlew bundle --stacktrace
-          ./gradlew assembleDebug
+          cd android && ./gradlew assembleRelease --no-daemon
+#      - name: Generate the android app bundle
+#        working-directory: ./android/
+#        run: |
+#          ./gradlew bundle --stacktrace
+#          ./gradlew assembleDebug
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
         with:
