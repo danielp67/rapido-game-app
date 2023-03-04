@@ -7,122 +7,26 @@ on:
     branches: [feature/*]
 
 jobs:
-  build-android:
+  install-and-test:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout source
-        uses: actions/checkout@v1
-
-      - name: Setup java
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 14.x
-#
-#      - name: Install Ionic
-#        run: npm install -g @ionic/cli
-#
-#      - name: Install app dependencies
-#        run: npm install --force
-#
-#      - name: Build
-#        run: ionic build
-#
-#      - name: Add android platform
-#        run: |
-#          npx cap add android
-#      - name: Generate ressources files
-#        run: |
-#          npm install -g expo-cli
-#          cordova-res android --skip-config --copy
-#          npx cap sync android
-      - name: Upload android folder
-        uses: actions/upload-artifact@v1
-        with:
-          name: android-artifact
-          path: android/
-      ## configure cash for gradle : will help to reduce build time
-      - name: Cache Gradle Wrapper
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
-      - name: Cache Gradle Dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-caches-
-
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-
-      - name: Execute Gradle build
+      - uses: actions/checkout@v3
+      - name: Install npm dependencies
         run: |
-          cd android && ./gradlew bundle
-
-      - name: Generate App APK
+          npm install
+  build-android:
+    needs: install-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Build Android Release
         run: |
           cd android && ./gradlew assembleRelease
-#      - name: Generate the android app bundle
-#        working-directory: ./android/
-#        run: |
-#          ./gradlew bundle --stacktrace
-#          ./gradlew assembleDebug
-      - name: Upload dev APK
+      - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: android-app-apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
-
-#  build-ios:
-#    runs-on: macos-latest
-#    steps:
-#
-#      - name: Checkout source
-#        uses: actions/checkout@v1
-#
-#      - name: Setup ruby
-#        uses: ruby/setup-ruby@v1
-#        with:
-#          ruby-version: 2.6 # Not needed with a .ruby-version file
-#          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-#
-#      - name: Install Cocoapods
-#        run: sudo gem install cocoapods
-#
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 14.x
-#
-#      - name: Install Ionic
-#        run: npm install -g @ionic/cli
-#
-#      - name: Install app dependencies
-#        run: npm install --force
-#
-#      - name: Build
-#        run: ionic build
-#
-#      - name: Add ios platform
-#        run: |
-#          npx cap add ios
-#          npx cap update ios
-#      - name: Generate ressources files
-#        run: |
-#          npm install -g cordova-res
-#          cordova-res ios --skip-config --copy
-#          npx cap sync ios
-#      - name: Upload ios folder
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: ios-artifact
-#          path: ios/
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/
