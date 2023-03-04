@@ -61,8 +61,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-caches-
 
-      - name: Make Gradlew Executable
-        run: cd android && chmod +x ./gradlew
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Execute Gradle build
+        run: |
+          cd android && ./gradlew bundle
 
       - name: Generate App APK
         run: |
