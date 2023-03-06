@@ -11,6 +11,7 @@ import ResumeMenu from "./ResumeMenu";
 const MainBoard = () => {
 
     const [selectedSlot, setSelectedSlot] = useState("")
+    const [selectedTab, setSelectedTab] = useState("home")
     const [droppedCard, setDroppedCard] = useState([])
     const [stop, setStop] = useState(false)
     const [pause, setPause] = useState(false)
@@ -25,7 +26,7 @@ const MainBoard = () => {
     const [settings, sendSettings] = useState(
         {
             nbPlayer: "4",
-            level: "100",
+            level: "1000",
             switchCountScore: true,
             switchTimer: true,
             switchDarkMode: true
@@ -128,6 +129,10 @@ const MainBoard = () => {
         setTime(props)
     }
 
+    const setTab = (props) => {
+        setSelectedTab(props)
+    }
+
 /*    if(!loading){
     initDropZone()
     setLoading(true)
@@ -205,6 +210,8 @@ const MainBoard = () => {
 
         return (
             <MainMenu
+                setSelectedTab={setTab}
+                selectedTab={selectedTab}
                 settings={settings}
                 setSettings={setSettings}
                 scoring={scoring}

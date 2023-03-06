@@ -3,7 +3,7 @@ import SwitchButton from "../Shareable/SwitchButton";
 import {ThemeContext} from "../Context/ThemeContext";
 import RadioGroup from "../Shareable/RadioGroup";
 import {ParamsContext} from "../Context/ParamsContext";
-import {Text, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 
 const SettingsTab = (props) => {
@@ -29,7 +29,7 @@ const SettingsTab = (props) => {
                         return (
                             <View className="tab-pane fade" id="settings-tab-pane" role="tabpanel"
                                  aria-labelledby="settings-tab" tabIndex="0">
-                                    <Text>Level :</Text>
+                                    <Text style={styles.text}>Level :</Text>
                                     <RadioGroup
                                         settings={settings}
                                         name={"level"}
@@ -45,5 +45,12 @@ const SettingsTab = (props) => {
         )
 
 }
+
+
+const styles = StyleSheet.create({
+    text: {
+        color:'white',
+    },
+});
 
 export default SettingsTab;

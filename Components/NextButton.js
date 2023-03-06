@@ -9,6 +9,7 @@ const NextButton = (props)=> {
 
             <Button type="button" className="btn btn-info btn-lg my-2"
                     onPress={nextCard}
+                    color={"#0d6efd"}
                     title={"NEXT"}
             />
         )

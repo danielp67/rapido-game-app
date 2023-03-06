@@ -28,15 +28,15 @@ const ResumeMenu = (props) => {
                     </Text>
 
                     <Text>Reprendre la partie ?</Text>
-                    <Button type="button" className="btn btn-secondary"
-                            data-bs-dismiss="modal"
+                    <Button
+                            color={"#adb5bd"}
                             onPress={()=>gamePause("quit")}
                             title={"Quitter la partie"}
                     />
-                    <Button type="button" className="btn btn-primary"
-                            data-bs-dismiss="modal"
-                            onPress={()=>gamePause(false)}
-                            title={"Continuer"}
+                    <Button
+                        color={"#0d6efd"}
+                        onPress={()=>gamePause(false)}
+                        title={"Continuer"}
                     />
                 </View>
             </Modal>
@@ -78,7 +78,7 @@ const ResumeMenu = (props) => {
 const styles = StyleSheet.create({
     modal: {
         backgroundColor: '#000000',
-        color:'#ffffff',
+        color:'white',
         width:'100%',
         display:'flex',
         alignItems:'center',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     text: {
         backgroundColor: '#000000',
-        color:'#ffffff',
+        color:'white',
 
         width:'50%',
         display:'flex',

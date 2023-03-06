@@ -2,9 +2,9 @@ import React from 'react';
 import TabItem from "./TabItem";
 import {FlatList, StyleSheet} from "react-native";
 
-const TabGroup = ({start}) => {
+const TabGroup = (props) => {
+    const {start, setSelectedTab} = props
     const items = ["home", "score", "settings", "tuto"]
-
 
     return (
 
@@ -20,9 +20,9 @@ const TabGroup = ({start}) => {
                 }
                 return(
                     <TabItem
-                       // key={index}
                         id={item}
                         disabled={disabled}
+                        setSelectedTab={setSelectedTab}
                     />
                 )
             }

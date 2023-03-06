@@ -71,9 +71,10 @@ const ScoringTab = ({scoring}) => {
                     return(
                         <Button
                             title={item}
-                        />
-                    )
-                }
+                            color={"#0d6efd"}
+
+                />
+                    )}
                 }
             />
 
@@ -86,9 +87,9 @@ const ScoringTab = ({scoring}) => {
                                 <View style={styles.scoringRow}
                                   //  key={}
                                 >
-                                    <Text>{item.playerIndex}</Text>
-                                    <Text>{item.currentScore}</Text>
-                                    <Text>{item.total}</Text>
+                                    <Text style={styles.text}>{item.playerIndex}</Text>
+                                    <Text style={styles.text}>{item.currentScore}</Text>
+                                    <Text style={styles.text}>{item.total}</Text>
                                 </View>
 
                             )
@@ -97,14 +98,16 @@ const ScoringTab = ({scoring}) => {
             />
         </View>
     )
-}
+};
 
 const styles = StyleSheet.create({
     scoringRow:{
         display:'flex',
         flewDirection:'row',
     },
-
+    text: {
+        color:'white',
+    },
 });
 
 export default ScoringTab;

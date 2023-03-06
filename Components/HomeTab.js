@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 const HomeTab = (props) => {
 
@@ -8,25 +8,25 @@ const HomeTab = (props) => {
     return (
             <View>
 
-                <Text className="card-title fw-bold">Rapido game</Text>
+                <Text style={styles.textBold}>Rapido game</Text>
                 {!start ?
                     <View>
-                    <Text>Bienvenue dans Rapido Game !</Text>
-                    <Text>Commencer une nouvelle partie ?</Text>
+                    <Text style={styles.text}>Bienvenue dans Rapido Game !</Text>
+                    <Text style={styles.text}>Commencer une nouvelle partie ?</Text>
                     </View>
                     : <View>
-                        <Text>
+                        <Text style={styles.text}>
                         Manche n°{scoring.partNb}</Text>
-                    <Text>   Gagnant de la manche : joueur n°{winnerMatch.playerIndex}
+                    <Text style={styles.text}>   Gagnant de la manche : joueur n°{winnerMatch.playerIndex}
                     </Text>
                     </View>
                 }
 
                 {scoring.partNb > 0 && winner ?
                     <View>
-                    <Text>
+                    <Text style={styles.text}>
                         Le jeu est fini, le vainqueur est le joueur n°{winnerGame.playerIndex}</Text>
-                    <Text>   Commencer une nouvelle partie ?
+                    <Text style={styles.text}>   Commencer une nouvelle partie ?
                     </Text>
                     </View>
                     : null
@@ -35,5 +35,17 @@ const HomeTab = (props) => {
             </View>
             )
 }
+
+const styles = StyleSheet.create({
+    text: {
+        color:'white',
+
+    },
+    textBold: {
+        color:'white',
+        fontSize:20,
+        fontWeight:"bolder"
+    },
+});
 
 export default HomeTab;

@@ -3,16 +3,15 @@ import {Button} from "react-native";
 
 const TabItem = (props) => {
 
-    const {id, disabled} = props
+    const {id, disabled, setSelectedTab} = props
 
     return (
             <Button
-                    onPress={()=>console.log("hello")}
+                    onPress={()=> setSelectedTab(id)}
                     className={`nav-link text-capitalize ${id === "home"? "active" : ""}`}
-                    id={`${id}-tab`} data-bs-toggle="tab"
-                    data-bs-target={`#${id}-tab-pane`} type="button" role="tab"
+                    id={`${id}-tab`}
+                    color={"#0d6efd"}
                     disabled={disabled}
-                    aria-controls={`${id}-tab-pane`} aria-selected={id === "home"}
                     title={id}
             />
 

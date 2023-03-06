@@ -8,7 +8,7 @@ import {Button, StyleSheet, Text, View} from "react-native";
 
 const MainMenu = (props) => {
 
-    const {scoring, settings, setSettings, setReloading, reloadGame, start} = props
+    const {scoring, settings, setSettings, setReloading, reloadGame, start, selectedTab, setSelectedTab} = props
 
     let winnerGame = [...scoring.score]
     let winnerMatch = [...scoring.score]
@@ -41,37 +41,48 @@ const MainMenu = (props) => {
                         <View>
                             <View>
 
-                            <TabGroup start={start} style={styles.tabGroup}/>
+                            <TabGroup
+                                setSelectedTab={setSelectedTab}
+                                start={start}
+                                      style={styles.tabGroup}/>
                             </View>
                             <View>
                                 <View style={styles.homeTab}>
+                                    {selectedTab === 'home' ?
                                 <HomeTab
                                     scoring={scoring}
                                     start={start}
                                     winner={winner}
                                     winnerGame={winnerGame[0]}
                                     winnerMatch={winnerMatch[0]}
-                                />
+                                /> : null }
                                 </View>
+                                {selectedTab === 'score' ?
                                 <ScoringTab
                                     scoring={scoring}
-                                />
+                                />: null }
+                                {selectedTab === 'settings' ?
                                 <SettingsTab
                                     settings={settings}
                                     setSettings={setSettings}
-                                />
-                                {/*<Text className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
+                                />: null }
+                                {selectedTab === 'tuto' ?
+                                <Text
+                                    style={{ color: "white" }}
+                                    className="tab-pane fade" id="tuto-tab-pane" role="tabpanel"
                                      aria-labelledby="tuto-tab" tabIndex="0">...
-                                </Text>*/}
+                                </Text>: null }
                             </View>
 
-                                <Button className="btn btn-primary"
+                                <Button
                                         onPress={() => setReloading()}
+                                        color={"#0d6efd"}
                                         disabled={winner}
                                         title={scoring.partNb === 0 ? "Démarrer" : "Continuer"}
                                 />
 
-                                <Button type="button" className="btn btn-secondary"
+                                <Button
+                                        color={"#adb5bd"}
                                         onPress={() => reloadGame()}
                                         disabled={!start}
                                         title={winner ? "Recommencer" : "Quitter la partie"}
