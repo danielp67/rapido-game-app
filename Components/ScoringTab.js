@@ -65,7 +65,7 @@ const ScoringTab = ({scoring}) => {
         <View>
 
             <FlatList
-                data={["Player", "Points","Total"]}
+                data={["Rank", "Player", "Points","Total"]}
                 horizontal={true}
                 renderItem={ ({item}) => {
                     return(

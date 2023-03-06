@@ -26,7 +26,7 @@ const MainBoard = () => {
     const [settings, sendSettings] = useState(
         {
             nbPlayer: "4",
-            level: "1000",
+            level: "100",
             switchCountScore: true,
             switchTimer: true,
             switchDarkMode: true
@@ -227,7 +227,6 @@ const MainBoard = () => {
 const styles = StyleSheet.create({
     timer: {
         width:'100%',
-
     },
     mainBoard: {
         display:'flex',
@@ -240,7 +239,6 @@ const styles = StyleSheet.create({
     leftSection:{
         width:'60%'
     },
-
     rightSection:{
         width:'40%'
     }
