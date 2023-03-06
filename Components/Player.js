@@ -263,13 +263,10 @@ const Player = (props) => {
                             {mapping === "reserveSlot" || mapping === "rapidoSlot" ? deck[mapping].length : " "}
                         </Text>
 
-                            {mapping === "tmpSlot2" && realPlayer ?
-
-                            <ResumeMenu
+                            {mapping === "tmpSlot2" && realPlayer ? <ResumeMenu
                                 gamePause={gamePause}
                                 isVisible={isVisible}
-                            />
-                            : null}
+                            /> : null}
 
                     </View>
                 )
@@ -291,13 +288,14 @@ const styles = (props) => StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         justifyContent: 'center',
-        alignItems:'center',
+        alignItems:'start',
         backgroundColor:props
     },
     slot: {
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
+        justifyContent: 'center',
         backgroundColor:props
 
     },
