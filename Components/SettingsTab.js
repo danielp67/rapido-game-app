@@ -17,7 +17,7 @@ const SettingsTab = (props) => {
                 <ThemeContext.Consumer>
                     {({theme, toggleTheme}) => {
                         const handleChange = (event) => {
-                            const {name, value, checked} = event.target
+                            const {name, value, checked} = event
                             setSettings((prevState) => ({
                                 ...prevState,
                                 [name]: value !== "on" ? value : checked,
