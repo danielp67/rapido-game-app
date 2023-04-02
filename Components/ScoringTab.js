@@ -44,35 +44,18 @@ const ScoringTab = ({scoring}) => {
         setSortScore(tmpScore)
     }
 
-    const sortTypes = {
-        up: {
-            class: 'sort-up',
-            // fn: (a, b) => a.net_worth - b.net_worth
-        },
-        down: {
-            class: 'sort-down',
-            // fn: (a, b) => b.net_worth - a.net_worth
-        },
-        default: {
-            class: 'sort',
-            //  fn: (a, b) => a
-        }
-    }
-
-    const {currentScore, total, playerIndex} = sort;
-
     return (
         <View>
 
             <FlatList
-                data={["Rank", "Player", "Points","Total"]}
+                data={[["Rank","rank"], ["Player","playerIndex"], ["Points","currentScore"],["Total","total"]]}
                 horizontal={true}
                 renderItem={ ({item}) => {
                     return(
                         <Button
-                            title={item}
+                            title={item[0]}
                             color={"#0d6efd"}
-
+                            onPress={()=> onSort(item[1])}
                 />
                     )}
                 }
@@ -81,15 +64,24 @@ const ScoringTab = ({scoring}) => {
 
             <FlatList
                 data={sortScore}
-                horizontal={true}
-                renderItem={ ({item}) => {
+                vertical={true}
+                renderItem={ ({item, index}) => {
+
                             return (
                                 <View style={styles.scoringRow}
-                                  //  key={}
+                                    key={index}
                                 >
-                                    <Text style={styles.text}>{item.playerIndex}</Text>
-                                    <Text style={styles.text}>{item.currentScore}</Text>
-                                    <Text style={styles.text}>{item.total}</Text>
+                                    <Text style={styles.text}>
+                                        {index+1}
+                                    </Text>
+                                    <Text style={styles.text}>
+                                    {item.playerIndex}
+                                    </Text>
+                                    <Text style={styles.text}>
+                                        {item.currentScore}
+                                    </Text>
+                                    <Text style={styles.text}>
+                                        {item.total}</Text>
                                 </View>
 
                             )
@@ -102,11 +94,12 @@ const ScoringTab = ({scoring}) => {
 
 const styles = StyleSheet.create({
     scoringRow:{
-        display:'flex',
-        flewDirection:'row',
+        flexDirection:'row'
     },
     text: {
         color:'white',
+        width:'25%',
+        textAlign : 'center'
     },
 });
 
