@@ -1,5 +1,4 @@
 import React from 'react';
-//import Modal from "../Shareable/Modal";
 import {View, Button, Text, Modal, StyleSheet} from "react-native";
 
 const ResumeMenu = (props) => {
