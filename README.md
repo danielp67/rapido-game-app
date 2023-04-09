@@ -2,7 +2,7 @@
 
 ---
 
-![CI](https://github.com/danielp67/rapido-game-app/actions/workflows/release/badge.svg?branch=develop)
+![CI/CD](https://github.com/danielp67/rapido-game-app/actions/workflows/release.yaml/badge.svg)
 
 Minimum requirements : ...
 
@@ -27,10 +27,10 @@ expo start
 ```
 ---
 
-## Lancer les tests :
+## Testing :
 
 - Jest :
-  ```sh
+```sh
   npm test
   ```
 
