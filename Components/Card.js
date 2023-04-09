@@ -26,6 +26,7 @@ const Card = (props) => {
                 style={styles(card).playerCard}
                 onTouchEndCapture={(e) => doubleClick(e)}
                 onDoubleClick={(e) => doubleClick(e)}
+                testID={'card'}
             >
                 <Text
                     style={styles(card).cardValue}

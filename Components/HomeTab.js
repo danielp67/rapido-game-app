@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     textBold: {
         color:'white',
         fontSize:20,
-        fontWeight:"bolder"
+        fontWeight:"bold"
     },
 });
 

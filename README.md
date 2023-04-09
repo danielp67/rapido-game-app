@@ -1,4 +1,4 @@
-#RAPIDO GAME APP - in React Native
+# RAPIDO GAME APP - in React Native
 
 ---
 

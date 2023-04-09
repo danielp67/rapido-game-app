@@ -370,7 +370,7 @@ exports[`rend correctement 1`] = `
                 {
                   "color": "white",
                   "fontSize": 20,
-                  "fontWeight": "bolder",
+                  "fontWeight": "bold",
                 }
               }
             >

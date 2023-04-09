@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`card 1`] = `
+<View
+  onDoubleClick={[Function]}
+  onTouchEndCapture={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "border": "solid",
+      "borderRadius": 3,
+      "height": 80,
+      "justifyContent": "center",
+      "margin": 5,
+      "width": 50,
+    }
+  }
+  testID="card"
+>
+  <Text
+    style={
+      {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  />
+</View>
+`;

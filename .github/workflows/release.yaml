@@ -2,7 +2,7 @@ name: Release Mobile
 
 on:
   push:
-    branches: [main]
+    branches: [develop]
   pull_request:
     branches: [feature/*]
 
@@ -11,9 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install npm dependencies
+      - name: Install npm dependencies and test
         run: |
           npm install
+          npm test
   build-android:
     needs: install-and-test
     runs-on: ubuntu-latest
