@@ -2,7 +2,7 @@
 
 ---
 
-![CI/CD](https://github.com/danielp67/rapido-game-app/actions/workflows/release.yaml/badge.svg)
+![CI/CD](https://github.com/danielp67/rapido-game-app/actions/workflows/release.yaml/badge.svg?branch=develop)
 
 Minimum requirements : ...
 
